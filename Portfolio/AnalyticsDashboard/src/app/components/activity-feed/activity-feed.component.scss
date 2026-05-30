@@ -1,0 +1,44 @@
+.activity-feed {
+  ul {
+    max-height: 300px;
+    overflow-y: auto;
+
+    .list-group-item {
+      border-left: 4px solid transparent;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+    }
+
+    // Color-coded borders
+    .text-primary .list-group-item {
+      border-left-color: #0d6efd;
+    }
+
+    .text-success .list-group-item {
+      border-left-color: #198754;
+    }
+
+    .text-info .list-group-item {
+      border-left-color: #0dcaf0;
+    }
+
+    .text-warning .list-group-item {
+      border-left-color: #ffc107;
+    }
+
+    .text-danger .list-group-item {
+      border-left-color: #dc3545;
+    }
+  }
+}
+
+small {
+  white-space: nowrap;
+}
+
+i {
+  font-size: 1.1rem;
+}

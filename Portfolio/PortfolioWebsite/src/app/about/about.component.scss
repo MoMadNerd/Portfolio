@@ -1,0 +1,33 @@
+/* About Component Styles */
+.card {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: 600;
+  }
+
+  .card-body {
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    blockquote {
+      border-left: 4px solid var(--primary-color);
+      padding-left: 1rem;
+      font-style: italic;
+      color: #6c757d;
+      margin: 1rem 0;
+    }
+  }
+}
+
+.alert-info {
+  background-color: rgba(13, 202, 240, 0.1);
+  border: none;
+  color: #0c5460;
+}

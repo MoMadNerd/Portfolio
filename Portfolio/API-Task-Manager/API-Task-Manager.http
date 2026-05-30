@@ -1,0 +1,40 @@
+@API_Task_Manager_HostUri = https://localhost:7001
+@ApiKey =
+
+GET {{API_Task_Manager_HostUri}/api/tasks}
+Content-Type: application/json
+
+###
+
+POST {{API_Task_Manager_HostUri}/api/tasks}
+Content-Type: application/json
+Authorization: Bearer {{ApiKey}}
+
+{
+  "title": "New Task",
+  "description": "Task description",
+  "priority": 1,
+  "completed": false
+}
+
+###
+
+GET {{API_Task_Manager_HostUri}/api/tasks/{taskId}}
+
+###
+
+PUT {{API_Task_Manager_HostUri}/api/tasks/{taskId}}
+Content-Type: application/json
+
+{
+  "title": "Updated Task Title",
+  "description": "Updated description",
+  "priority": 2,
+  "completed": true
+}
+
+###
+
+DELETE {{API_Task_Manager_HostUri}/api/tasks/{taskId}}
+
+###
