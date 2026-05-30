@@ -1,0 +1,111 @@
+<!-- Dashboard Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <i class="fas fa-chart-line me-2"></i>Analytics Dashboard
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Reports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Settings</a>
+        </li>
+      </ul>
+      <span class="text-white">Last updated: {{ now | date:'medium' }}</span>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <!-- KPI Cards Row -->
+  <div class="row g-3 mb-4">
+    <ng-container *ngFor="let card of kpiCards; let i = index">
+      <div class="col-md-3">
+        <div [ngClass]="{
+          'bg-primary': i === 0,
+          'bg-success': i === 1,
+          'bg-warning': i === 2,
+          'bg-info': i === 3
+        }" class="card text-white h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h6 class="card-title mb-0">{{ card.label }}</h6>
+              <i [ngClass]="'fas fa-' + card.icon" class="fs-4 opacity-50"></i>
+            </div>
+            <h3 class="mb-0">{{ card.value | number:'1.0-0' }}{{ card.value >= 1000 ? 'K' : '' }}</h3>
+            <small class="text-white-50">
+              <span [ngClass]="{
+                'text-success': card.trend === 'up',
+                'text-danger': card.trend === 'down',
+                'text-white': card.trend === 'neutral'
+              }">
+                {{ card.change > 0 ? '+' : '' }}{{ card.change }}%
+              </span>
+              vs last month
+            </small>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Charts Row -->
+  <div class="row g-4 mb-4">
+    <div class="col-lg-8">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white">
+          <h5 class="mb-0">
+            <i class="fas fa-dollar-sign me-2 text-primary"></i>Revenue Trends
+            <span class="badge bg-primary ms-2">6 months</span>
+          </h5>
+        </div>
+        <div class="card-body">
+          <canvas id="revenueChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white">
+          <h5 class="mb-0">
+            <i class="fas fa-users me-2 text-success"></i>User Growth
+            <span class="badge bg-success ms-2">Active</span>
+          </h5>
+        </div>
+        <div class="card-body">
+          <canvas id="usersChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activity Feed -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-white">
+      <h5 class="mb-0">
+        <i class="fas fa-tachometer-alt me-2 text-info"></i>Real-time Activity Feed
+      </h5>
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let activity of activityData" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <i [ngClass]="'fas fa-' + activity.icon + ' me-2 text-' + activity.color" class="me-2"></i>
+              <span>{{ activity.action }}</span>
+            </div>
+            <small class="text-muted">{{ activity.timestamp }}</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

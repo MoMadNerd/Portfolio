@@ -1,0 +1,55 @@
+/* App Component Styles */
+app-analytics {
+  .container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  /* KPI Cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    transition: transform 0.2s;
+    cursor: default;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  h3 {
+    font-weight: 700;
+  }
+
+  small {
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  /* Charts */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1rem;
+  }
+
+  /* Activity Feed */
+  .activity-feed {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+
+    &:hover {
+      background-color: #f9fafb;
+    }
+  }
+}

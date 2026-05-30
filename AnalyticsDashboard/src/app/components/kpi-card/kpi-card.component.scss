@@ -1,0 +1,27 @@
+.kpi-card {
+  transition: transform 0.2s;
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+small {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+i {
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

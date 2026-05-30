@@ -1,0 +1,79 @@
+/* App Component Global Styles */
+.navbar {
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+
+  .navbar-brand {
+    font-weight: 700;
+    color: #333 !important;
+
+    i {
+      color: var(--primary-color);
+      margin-right: 0.5rem;
+    }
+  }
+
+  .nav-link {
+    font-weight: 500;
+    color: #555 !important;
+    padding: 0.5rem 1rem !important;
+
+    &:hover,
+    &.active {
+      color: var(--primary-color) !important;
+    }
+
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Main Content Padding */
+.main-content {
+  padding-top: 56px; // Account for fixed navbar
+  padding-bottom: 40px;
+}
+
+/* Footer */
+footer {
+  a {
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #fff !important;
+    }
+  }
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
